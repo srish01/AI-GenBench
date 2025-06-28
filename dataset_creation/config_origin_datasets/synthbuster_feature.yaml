@@ -1,0 +1,28 @@
+generators:
+  DALL-E 2:
+    samples: 1000
+    max samples: 1000
+  DALL-E 3:
+    samples: 550
+    max samples: 500
+  Firefly:
+    samples: 1000
+    max samples: 1000
+  Glide:
+    samples: 550
+    max samples: 500
+  Midjourney 5:
+    samples: 1000
+    max samples: 1000
+  Stable Diffusion 1.3:
+    samples: 1000
+    max samples: 1000
+  Stable Diffusion 1.4:
+    samples: 550
+    max samples: 500
+  Stable Diffusion 2:
+    samples: 1000
+    max samples: 1000
+  Stable Diffusion XL 1.0:  
+    samples: 550
+    max samples: 500

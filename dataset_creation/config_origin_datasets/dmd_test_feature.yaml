@@ -1,0 +1,25 @@
+generators:
+  ADM:
+    samples: 1250
+    max samples: 1100
+  DDPM:
+    samples: 4950
+    max samples: 4500
+  Diffusion GAN (ProjectedGAN):
+    samples: 2750
+    max samples: 2500
+  Diffusion GAN (StyleGAN2):
+    samples: 2750
+    max samples: 2500
+  Latent Diffusion:
+    samples: 1650
+    max samples: 1500
+  ProGAN:
+    samples: 1400
+    max samples: 1250
+  ProjectedGAN:
+    samples: 2750
+    max samples: 2500
+  StyleGAN1:
+    samples: 0
+    max samples: 0

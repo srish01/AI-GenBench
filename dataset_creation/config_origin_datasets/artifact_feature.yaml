@@ -1,0 +1,315 @@
+sampling:
+  take_all: False
+
+generators:
+  BigGAN:
+    samples: 2500
+    max samples: 2250
+    conditioning:
+      value: "class/imagenet_{class_id}"
+    description:
+      value: "{imagenet_class}"
+    positive_prompt:
+      value: ""
+  CIPS:
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "noise"
+    description:
+      value: "{cips_description}"
+      mappings:
+        - match: "landscape"
+          value: "landscape"
+        - match: ["churces", "churches"]
+          value: "church"
+        - match: "ffhq"
+          value: "face"
+    positive_prompt:
+      value: ""
+  CycleGAN:
+    samples: 4400
+    max samples: 4000
+    conditioning:
+      value: "image/{parent_name}"
+    description:
+      value: "{cyclegan_description}"
+      mappings:
+        - match: "monet"
+          value: "Monet painting"
+    positive_prompt:
+      value: ""
+  DDPM:
+    samples: 550
+    max samples: 500
+    conditioning:
+      value: "noise"
+    description:
+      value: "{parent_name}"
+    positive_prompt:
+      value: ""
+  Denoising Diffusion GAN:
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "noise"
+    description:
+      value: "face"
+    positive_prompt:
+      value: ""
+  Diffusion GAN (StyleGAN2):
+    samples: 2750
+    max samples: 2500
+    conditioning:
+      value: "noise"
+    description:
+      value: "{diffusiongan_description}"
+      mappings:
+        - match: "afhq"
+          value: "animal face"
+        - match: "ffhq"
+          value: "face"
+    positive_prompt:
+      value: ""
+  Diffusion GAN (ProjectedGAN):
+    samples: 2750
+    max samples: 2500
+    conditioning:
+      value: "noise"
+    description:
+      value: "{diffusiongan_description}"
+      mappings:
+        - match: "afhq"
+          value: "animal face"
+        - match: "ffhq"
+          value: "face"
+    positive_prompt:
+      value: ""  
+  FaceSynthetics:
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "noise"
+    description:
+      value: "face"
+    positive_prompt:
+      value: ""
+  GANformer:
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "noise"
+    description:
+      value: "{ganformer_description}"
+      mappings:
+        - match: "bedrooms"
+          value: "bedroom"
+        - match: "ffhq"
+          value: "face"
+    positive_prompt:
+      value: ""  
+  GauGAN:
+    samples: 2750
+    max samples: 2500
+    conditioning:
+      value: "segmentation"
+    description:
+      value: ""
+    positive_prompt:
+      value: ""
+  SN-PatchGAN:
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "inpainting/noise"
+    description:
+      value: ""
+    positive_prompt:
+      value: ""
+  Glide:
+    samples: 1800
+    max samples: 1600
+    conditioning:
+      value: !artifact glide_conditioning
+    description:
+      value: ""
+    positive_prompt:
+      value: ""
+  LaMa:
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "noise"
+    description: 
+      value: "{parent_parent_name}"
+      mappings:
+        - match: "places"
+          value: "place"
+        - match: "celeb"
+          value: "face"
+    positive_prompt:
+      value: ""
+  Latent Diffusion:
+    samples: 2200
+    max samples: 2000
+    conditioning:
+      value: "{parent_parent_name}"
+      mappings:
+        - match: ".*-t2i$"
+          value: "text"
+        - match: ".*"
+          value: "class/imagenet_{class_id}"
+    description:
+      value: "{parent_parent_name}"
+      mappings:
+        - match: ".*-t2i$"
+          value: ""
+        - match: ".*"
+          value: "{imagenet_class}"      
+    positive_prompt:
+      value: ""
+  MAT:
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "noise"
+    description:
+      value: "{parent_name}"
+      mappings:
+        - match: "celebahq"
+          value: "face"
+    positive_prompt:
+      value: ""
+  Palette:
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "image"
+    description:
+      value: "face"
+    positive_prompt:
+      value: ""
+  ProGAN:
+    samples: 1400
+    max samples: 1250
+    conditioning:
+      value: "noise"
+    description:
+      value: "{parent_parent_name}"
+    positive_prompt:
+      value: ""
+  ProjectedGAN:
+    samples: 2700
+    max samples: 2500
+    conditioning:
+      value: "noise"
+    description:
+      value: "{parent_name}"
+      mappings:
+        - match: "ffhq"
+          value: "face"
+        - match: "art_painting"
+          value: "art painting"
+        - match: "cityscapes"
+          value: "cityscape"
+    positive_prompt:
+      value: ""
+  StyleGAN2 (SFHQ):
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "image"
+    description:
+      value: "face"
+    positive_prompt:
+      value: ""
+  Stable Diffusion:
+    samples: 1000
+    max samples: 1000
+    conditioning:
+      value: "text"
+    description:
+      value: "{parent_parent_name}"
+      mappings:
+        - match: "stable-face"
+          value: "{stablediffusion_face_modifier} face"
+        - match: ".*"
+          value: ""        
+    positive_prompt:
+      value: ""
+  StarGAN:
+    samples: 3700
+    max samples: 3400
+    conditioning:
+      value: "image"
+    description:
+      value: "{stargan_face_modifier} face"
+    positive_prompt:
+      value: ""
+  StyleGAN1:
+    samples: 2700
+    max samples: 2500
+    conditioning:
+      value: "noise"
+    description:
+      value: "face"
+    positive_prompt:
+      value: "" 
+  StyleGAN2:
+    samples: 2350
+    max samples: 2100
+    conditioning:
+      value: "noise"
+    description:
+      value: "{stylegan2_description}"
+      mappings:
+        - match: "ffhq"
+          value: "face"
+    positive_prompt:
+      value: "" 
+  StyleGAN3:
+    samples: 4000
+    max samples: 3600
+    conditioning:
+      value: "noise"
+    description:
+      value: "{stylegan3_description}"
+      mappings:
+        - match: "afhqv2"
+          value: "animal face"
+        - match: ["metfaces", "metfacesu"]
+          value: "painting of a face"
+        - match: ["ffhq", "ffhqu"]
+          value: "face"
+    positive_prompt:
+      value: "" 
+  VQGAN:
+    samples: 4550
+    max samples: 4100
+    conditioning:
+      value: "{vqgan_base}"
+      mappings:
+        - match: "tt-cc"
+          value: "class/imagenet_{class_id}"
+        - match: ["tt-coco", "tt-ffhq"]
+          value: "noise"    
+    description:
+      value: "{vqgan_base}"
+      mappings:
+        - match: "tt-cc"
+          value: "{imagenet_class}"
+        - match: "tt-coco"
+          value: ""
+        - match: "tt-ffhq"
+          value: "face"
+    positive_prompt:
+      value: ""
+  VQ-Diffusion:
+    samples: 2750
+    max samples: 2500
+    conditioning:
+      value: "class/imagenet_{class_id}"
+    description:
+      value: "{imagenet_class}"
+    positive_prompt:
+      value: ""

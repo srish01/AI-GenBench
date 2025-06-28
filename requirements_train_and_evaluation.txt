@@ -1,0 +1,25 @@
+--extra-index-url https://download.pytorch.org/whl/cu128
+datasets>=3
+matplotlib
+black
+numpy
+pillow
+scikit-learn
+ruamel.yaml
+img2dataset
+click
+torch==2.7.0
+torchvision=0.22.0
+xformers
+tensorboard
+lightning[pytorch-extra]
+torchmetrics
+submitit
+timm
+transformers
+clip @ git+https://github.com/openai/CLIP@dcba3cb
+albumentations
+open_clip_torch
+tqdm
+scipy
+jsonargparse<4.37.0

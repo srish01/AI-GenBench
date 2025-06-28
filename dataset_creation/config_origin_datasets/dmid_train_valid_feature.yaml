@@ -1,0 +1,31 @@
+sampling:
+  samples: 300
+
+generators:
+  Latent Diffusion:
+    max samples: 250
+    conditioning:
+      value: "{subset_type}"
+      mappings:
+        - match: "class2img"
+          value: "class/imagenet_{class_id}"
+        - match: "noise2img"
+          value: "noise"
+        - match: "text2img"
+          value: "text"
+    description:
+      value: "{subset_type}"
+      mappings:
+        - match: "class2img"
+          value: "{class2img_description}"
+        - match: "noise2img"
+          value: "{noise2img_description}"
+          mappings:
+            - match: "churches"
+              value: "church"
+            - match: "FFHQ"
+              value: "face"
+            - match: "bedrooms"
+              value: "bedroom"
+        - match: "text2img"
+          value: ""

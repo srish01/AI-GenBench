@@ -1,0 +1,51 @@
+generators:
+  DALL-E 3:
+    samples: 4400
+    max samples: 4000
+    conditioning:
+      value: "text"
+    description:
+      value: ""
+  Midjourney:
+    samples: 0
+    max samples: 0
+    conditioning:
+      value: "text"
+    description:
+      value: ""
+  Stable Diffusion 2.1:
+    samples: 1100
+    max samples: 1000
+    conditioning:
+      value: "text"
+    description:
+      value: "{description}"
+      mappings:
+        - match: "faces"
+          value: "face"
+        - match: "paintings"
+          value: "painting"
+        - match: "photos"
+          value: "photo"  
+  Stable Diffusion XL 1.0:
+    samples: 550
+    max samples: 500
+    conditioning:
+      value: "text"
+    description:
+      value: "{description}"
+      mappings:
+        - match: "faces"
+          value: "face"
+        - match: "paintings"
+          value: "painting"
+        - match: "photos"
+          value: "photo"
+  StyleGAN3:
+    samples: 550
+    max samples: 500
+    conditioning:
+      value: "noise"
+    description:
+      value: "painting"
+    

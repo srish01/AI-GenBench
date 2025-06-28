@@ -1,0 +1,16 @@
+generators:
+  FLUX 1 Schnell:
+    samples: 5500
+    max samples: 5000
+  FLUX 1 Dev:
+    samples: 5500
+    max samples: 5000
+  FLUX 1 Pro:
+    samples: 3209
+    max samples: 3209
+  Stable Diffusion XL 1.0:
+    samples: 1100
+    max samples: 1000
+  DALL-E 3:
+    samples: 0 # low quality and the prompts do not match
+    max samples: 0

@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+
+# IDEs
+.vscode/
+
+# Local configuration files
+local.cfg
+local_simple.cfg
+local_config.yaml
+
+# Directories used to store results
+eval_plots/
+experiments_data/
+experiments_logs/
+slurm_logs/

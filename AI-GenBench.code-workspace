@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+            "name": "Dataset creation",
+			"path": "dataset_creation"
+		},
+		{
+            "name": "Training and evaluation",
+			"path": "training_and_evaluation"
+		},
+	],
+	"settings": {}
+}

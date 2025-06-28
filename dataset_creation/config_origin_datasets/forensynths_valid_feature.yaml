@@ -1,0 +1,10 @@
+sampling:
+  samples: 350
+
+generators:
+    ProGAN:
+      max samples: 300
+      conditioning:
+        value: "noise"
+      description:
+        value: "{parent_parent_name}"

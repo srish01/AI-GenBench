@@ -1,0 +1,268 @@
+generators:
+  ADM:
+    samples: 1000
+    max samples: 900
+    conditioning:
+      value: "{conditioning_type}"
+      mappings:
+        - match: "class2image"
+          value: "class/imagenet_unknown"
+        - match: "noise2image"
+          value: "noise"
+        - match: "text2img"
+          value: "text"
+        - match: "segm2image"
+          value: "segmentation"
+    description:
+      value: "{conditioning_type}"
+      mappings:
+        - match: ["class2image", "text2img"]
+          value: ""
+        - match: "noise2image"
+          value: "{noise2image_description}"
+          mappings:
+            - match: "bedrooms"
+              value: "bedroom"
+            - match: "cats"
+              value: "cat"
+            - match: "horses"
+              value: "horse"
+            - match: "churches"
+              value: "church"
+            - match: "FFHQ"
+              value: "face"
+        - match: "segm2image"
+          value: "{segm2image_description}"
+    positive_prompt:
+      value: "{conditioning_type}"
+      mappings:
+        - match: ["class2image", "noise2image", "segm2image"]
+          value: ""
+        - match: "text2img"
+          value: "{coco_positive_prompt}"
+    paired_real_image:
+      value: "{conditioning_type}"
+      mappings:
+        - match: ["class2image", "noise2image"]
+          value: ""
+        - match: "text2img"
+          value: "COCO2017_val/{coco_paired_image_id}"
+        - match: "segm2image"
+          value: "COCO2017_val/{segm2image_coco_image_id}"
+  BigGAN:
+    samples: 1000
+    max samples: 900
+    conditioning:
+      value: "class/imagenet_{class_id}"
+    description:
+      value: "{biggan_description}"
+    positive_prompt:
+      value: ""
+    paired_real_image:
+      value: ""
+  DALL-E 2:
+    samples: 996
+    max samples: 996
+    conditioning:
+      value: "text"
+    description:
+      value: ""
+    positive_prompt:
+      value: "{dall-e_2_positive_prompt}"
+    paired_real_image:
+      value: ""
+  DALL-E Mini:
+    samples: 1000
+    max samples: 1000
+    conditioning:
+      value: "text"
+    description:
+      value: ""
+    positive_prompt:
+      value: "{coco_positive_prompt}" 
+    paired_real_image:
+      value: "COCO2017_val/{coco_paired_image_id}"
+  EG3D:
+    samples: 1000
+    max samples: 1000
+    conditioning:
+      value: "noise"
+    description:
+      value: "face"
+    positive_prompt:
+      value: ""
+    paired_real_image:
+      value: ""
+  Glide:
+    samples: 1000
+    max samples: 900
+    conditioning:
+      value: "text"
+    description:
+      value: ""
+    positive_prompt:
+      value: "{coco_positive_prompt}" 
+    paired_real_image:
+      value: "COCO2017_val/{coco_paired_image_id}"
+  Latent Diffusion:
+    samples: 550
+    max samples: 500
+    conditioning:
+      value: "{conditioning_type}"
+      mappings:
+        - match: "class2image"
+          value: "class/imagenet_{imagenet_class_id}"
+        - match: "noise2image"
+          value: "noise"
+        - match: "text2img"
+          value: "text"
+        - match: "segm2image"
+          value: "segmentation"
+    description:
+      value: "{conditioning_type}"
+      mappings:
+        - match: "class2image"
+          value: "{imagenet_description}"
+        - match: "text2img"
+          value: ""
+        - match: "noise2image"
+          value: "{noise2image_description}"
+          mappings:
+            - match: "bedrooms"
+              value: "bedroom"
+            - match: "cats"
+              value: "cat"
+            - match: "horses"
+              value: "horse"
+            - match: "churches"
+              value: "church"
+            - match: "FFHQ"
+              value: "face"
+        - match: "segm2image"
+          value: "{segm2image_description}"
+    positive_prompt:
+      value: "{conditioning_type}"
+      mappings:
+        - match: ["class2image", "noise2image", "segm2image"]
+          value: ""
+        - match: "text2img"
+          value: "{coco_positive_prompt}"
+    paired_real_image:
+      value: "{conditioning_type}"
+      mappings:
+        - match: ["class2image", "noise2image"]
+          value: ""
+        - match: "text2img"
+          value: "COCO2017_val/{coco_paired_image_id}"
+        - match: "segm2image"
+          value: "COCO2017_val/{segm2image_coco_image_id}"
+  ProGAN:
+    samples: 1000
+    max samples: 900
+    conditioning:
+      value: "noise"
+    description:
+      value: "{progan_description}"
+    positive_prompt:
+      value: ""
+    paired_real_image:
+      value: ""
+  Stable Diffusion:
+    samples: 1000
+    max samples: 1000
+    conditioning:
+      value: "text"
+    description:
+      value: ""
+    positive_prompt:
+      value: "{coco_positive_prompt}" 
+    paired_real_image:
+      value: "COCO2017_val/{coco_paired_image_id}"
+  StyleGAN2:
+    samples: 1000
+    max samples: 900
+    conditioning:
+      value: "noise"
+    description:
+      value: "{stylegan_dataset}"
+      mappings:
+        - match: "afhqv2"
+          value: "animal face"
+        - match: ["ffhq", "ffhqu"]
+          value: "face"
+        - match: "^lsun.*"
+          value: "{stylegan_dataset_without_prefix}"
+    positive_prompt:
+      value: ""
+    paired_real_image:
+      value: ""
+  StyleGAN3:
+    samples: 1000
+    max samples: 900
+    conditioning:
+      value: "noise"
+    description:
+      value: "{stylegan_dataset}"
+      mappings:
+        - match: "afhqv2"
+          value: "animal face"
+        - match: ["ffhq", "ffhqu"]
+          value: "face"
+        - match: "^lsun.*"
+          value: "{stylegan_dataset_without_prefix}"
+    positive_prompt:
+      value: ""
+    paired_real_image:
+      value: ""
+  VQGAN:
+    samples: 1000
+    max samples: 900
+    conditioning:
+      value: "{conditioning_type}"
+      mappings:
+        - match: "class2image"
+          value: "class/imagenet_{vqgan_class_id}"
+        - match: "noise2image"
+          value: "noise"
+        - match: "text2img"
+          value: "text"
+        - match: "segm2image"
+          value: "segmentation"
+    description:
+      value: "{conditioning_type}"
+      mappings:
+        - match: "class2image"
+          value: "{vqgan_description}"
+        - match: "text2img"
+          value: ""
+        - match: "noise2image"
+          value: "{noise2image_description}"
+          mappings:
+            - match: "bedrooms"
+              value: "bedroom"
+            - match: "cats"
+              value: "cat"
+            - match: "horses"
+              value: "horse"
+            - match: "churches"
+              value: "church"
+            - match: "FFHQ"
+              value: "face"
+        - match: "segm2image"
+          value: "{segm2image_description}"
+    positive_prompt:
+      value: "{conditioning_type}"
+      mappings:
+        - match: ["class2image", "noise2image", "segm2image"]
+          value: ""
+        - match: "text2img"
+          value: "{coco_positive_prompt}"
+    paired_real_image:
+      value: "{conditioning_type}"
+      mappings:
+        - match: ["class2image", "noise2image"]
+          value: ""
+        - match: "text2img"
+          value: "COCO2017_val/{coco_paired_image_id}"
+        - match: "segm2image"
+          value: "COCO2017_val/{segm2image_coco_image_id}"

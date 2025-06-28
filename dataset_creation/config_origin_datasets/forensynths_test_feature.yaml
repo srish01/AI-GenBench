@@ -1,0 +1,64 @@
+generators:
+  BigGAN:
+    samples: 2000
+    max samples: 1850
+    conditioning:
+      value: "noise"
+    description:
+      value: ""
+  Cascaded Refinement Networks:
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "segmentation"
+    description:
+      value: ""
+  CycleGAN:
+    samples: 1100
+    max samples: 1000
+    conditioning:
+      value: "image/{translation_type}"
+    description:
+      value: "{parent_parent_name}"
+  GauGAN:
+    samples: 2750
+    max samples: 2500
+    conditioning:
+      value: "segmentation"
+    description:
+      value: ""
+  IMLE:
+    samples: 5500
+    max samples: 5000
+    conditioning:
+      value: "segmentation"
+    description:
+      value: ""
+  ProGAN:
+    samples: 1100
+    max samples: 1000
+    conditioning:
+      value: "noise"
+    description:
+      value: "{parent_parent_name}"
+  StarGAN:
+    samples: 1800
+    max samples: 1600
+    conditioning:
+      value: "image"
+    description:
+      value: "face"
+  StyleGAN1:
+    samples: 2750
+    max samples: 2500
+    conditioning:
+      value: "noise"
+    description:
+      value: "{parent_parent_name}"
+  StyleGAN2:
+    samples: 2200
+    max samples: 2000
+    conditioning:
+      value: "noise"
+    description:
+      value: "{parent_parent_name}"

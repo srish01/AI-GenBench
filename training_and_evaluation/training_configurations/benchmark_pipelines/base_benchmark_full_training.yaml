@@ -1,0 +1,51 @@
+trainer:
+  accelerator: auto
+  strategy: auto
+  devices: auto
+  max_steps: -1
+  overfit_batches: 0.0
+  val_check_interval: null
+  check_val_every_n_epoch: 1
+  num_sanity_val_steps: 0
+  log_every_n_steps: 10
+  enable_checkpointing: true
+  enable_progress_bar: null
+  enable_model_summary: null
+  inference_mode: true
+  use_distributed_sampler: true
+  sync_batchnorm: false
+  reload_dataloaders_every_n_epochs: 0
+  default_root_dir: null
+  logger:
+  # Note: for TensorBoardLogger, the save_dir is customized in each model config
+  # Doesn't make much sense for WandbLogger, so we define its save_dir here
+    - class_path: lightning.pytorch.loggers.tensorboard.TensorBoardLogger
+    - class_path: lightning.pytorch.loggers.WandbLogger
+      init_args:
+        project: "AIGenBench"
+        save_dir: "./experiments_logs/wandb_logs"
+  fast_dev_run: false
+  callbacks:
+    - class_path: training_metrics.DeepFakePredictionsDump
+      init_args:
+        gt_keys: ["label", "generator", "identifier"]
+        pred_keys: ["prediction", "loss"]
+    # - class_path: lightning.pytorch.callbacks.LearningRateMonitor
+    - class_path: training_metrics.MetricsManager
+data:
+  class_path: lightning_data_modules.AIGenBenchPipeline  # the benchmark definition pipeline
+  init_args:
+    dataset_loader:
+      class_path: lightning_data_modules.datasets.AIGenBenchDatasetLoader  # the dataset provider
+      init_args:
+        dataset_path: "/deepfake/ai_gen_bench_dataset"
+    train_batch_size: 128
+    eval_batch_size: 128
+    num_workers: 8
+    train_subset_size: 0  # > 0 to use a balanced subset (for fast training / debugging). Either int or float.
+    validation_subset_size: 0  # > 0 to use a balanced subset (for fast eval / debugging). Either int or float.
+    deterministic_augmentations: true  # if True, is like having a training dataset of side len(dataset) * augmentation_factor
+    augmentation_factor: 4  # the augmentation factor (called augmentation multiplier (am) in our paper)
+    augmentations_base_seed: 4321
+    maximum_processing_size: 1080  # if not null, images will be random-cropped to this size before applying augmentations (some images are huge...)
+# experiment_info:  # By not declaring experiment_info, the full dataset (without following the benchmark protocol) will be used

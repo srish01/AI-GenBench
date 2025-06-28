@@ -1,0 +1,45 @@
+gen_type_1: &gen_type_1
+  conditioning:
+    value: "class/imagenet_{class_id}"
+  description:
+    value: "{description}"
+  positive_prompt:
+    value: ""
+
+gen_type_2: &gen_type_2
+  conditioning:
+    value: "text"
+  description:
+    value: "{description}"
+  positive_prompt:
+    value: "photo of {description}"
+
+generators:
+  ADM:
+    samples: 3300
+    max samples: 3000
+    <<: *gen_type_1
+  Glide: 
+    samples: 1650
+    max samples: 1500
+    <<: *gen_type_2
+  Midjourney: 
+    samples: 5500
+    max samples: 5000
+    <<: *gen_type_2
+  Stable Diffusion 1.4:
+    samples: 550
+    max samples: 500
+    <<: *gen_type_2
+  Stable Diffusion 1.5: 
+    samples: 2200
+    max samples: 2000
+    <<: *gen_type_2
+  VQ-Diffusion: 
+    samples: 2750
+    max samples: 2500
+    <<: *gen_type_2
+  Wukong:
+    samples: 5500
+    max samples: 5000
+    <<: *gen_type_2

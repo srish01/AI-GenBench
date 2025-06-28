@@ -1,0 +1,9 @@
+datasets>=3
+matplotlib
+black
+numpy
+pillow
+scikit-learn
+ruamel.yaml
+img2dataset
+click
