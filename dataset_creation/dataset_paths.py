@@ -19,10 +19,14 @@ from pathlib import Path
 
 def parse_dataset_paths(config_file="local.cfg"):
     default_working_paths = [
-        ("input_datasets_path", "/deepfake"),
-        ("output_path", "~/deepfake_benchmark_output"),
-        ("tmp_cache_dir", "~/deepfake_benchmark_output_cache"),
-        ("intermediate_outputs_path", "~/deepfake_benchmark_intermediate_outputs"),
+        # ("input_datasets_path", "/deepfake"),
+        # ("output_path", "~/deepfake_benchmark_output"),
+        # ("tmp_cache_dir", "~/deepfake_benchmark_output_cache"),
+        # ("intermediate_outputs_path", "~/deepfake_benchmark_intermediate_outputs"),
+        ("input_datasets_path", "/home/datasets/images"),           #changed
+        ("output_path", "/home/datasets/images/AI-GenBench-fake_part"),      #changed
+        ("tmp_cache_dir", "/home/datasets/images/AI-GenBench-fake_part_cache"),     #changed
+        ("intermediate_outputs_path", "/home/datasets/images/AI-GenBench-fake_part_intermediate "),    #changed
     ]
 
     defaults: OrderedDict[str, Path] = OrderedDict()

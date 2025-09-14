@@ -13,16 +13,19 @@ def main():
     # !!! ADAPT THESE PATHS !!!
 
     # Where you are placing all the datasets
-    overall_output_path = "/deepfake"
+    # overall_output_path = "/deepfake"
+    overall_output_path = "/home/datasets/images"
 
     # Where you want to download the datasets (raw files, will be converted to arrow later)
     # Doesn't need to be a folder inside overall_output_path!
-    download_path = "/deepfake/simple_laion400m_elsad3_subset_download"
+    
+    # download_path = "/deepfake/simple_laion400m_elsad3_subset_download"
+    download_path = "/home/datasets/images/laion400m_elsad3_subset_download"
 
-    train_filelist_path = "resources/train_laion400m_filelist.json"
-    train_filelist_zip_path = "resources/train_laion400m_filelist.zip"
-    validation_filelist_path = "resources/validation_laion400m_filelist.json"
-    validation_filelist_zip_path = "resources/validation_laion400m_filelist.zip"
+    train_filelist_path = "../resources/train_laion400m_filelist.json"
+    train_filelist_zip_path = "../resources/train_laion400m_filelist.zip"
+    validation_filelist_path = "../resources/validation_laion400m_filelist.json"
+    validation_filelist_zip_path = "../resources/validation_laion400m_filelist.zip"
 
     # --- END OF PATHS ---
 
@@ -92,6 +95,7 @@ def main():
             number_sample_per_shard=1000,
             save_additional_columns=["id", "description"],
         )
+        print("Finished downloading training set")
 
     if os.path.exists(validation_download_dir):
         print("Validation set already downloaded. Skipping download")
@@ -119,7 +123,8 @@ def main():
             number_sample_per_shard=1000,
             save_additional_columns=["id", "description"],
         )
-
+        print("Finished downloading training set")
+        
     print("Datasets downloaded from internet")
     print("Starting arrow conversion")
 

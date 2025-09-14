@@ -7,7 +7,8 @@ if __name__ == "__main__":
     )
     print('Note: use the "Get the images!" link')
 
-    output_dir = os.path.abspath("RAISE_all_TIF")
+    # output_dir = os.path.abspath("RAISE_all_TIF")
+    output_dir = os.path.abspath("/home/datasets/images/RAISE_all_TIF")
 
     if os.path.exists(output_dir):
         raise ValueError("Output directory already exists. Please remove it manually.")
